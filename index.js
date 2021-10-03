@@ -11,17 +11,28 @@ function getPizzaOrder() {
   var pizza = {
     // set the 'cost' property to the basePrice
     // YOUR CODE HERE
+    cost: basePrice
+    
   }
 
   var crust = prompt(
     `Please enter the type of crust (${formatPrice(thickCrustUpcharge)} upcharge for Thick crust)`
   )
   // set the pizza object's 'crust' property to the user's response
+  if (typeof crust === 'string' && crust) {
+    pizza.crust = crust.trim().toLowerCase()
+    console.log(pizza.crust)
+    if (pizza.crust === 'thick') {
+      pizza.crust += thickCrustUpcharge
+    }
+  }
   // HINT: prompt() returns a string
   // HINT: You may wish to use .toLowerCase() and .trim()
   // if the user specified 'thick' crust, add thickCrustUpcharge
   // to pizza.cost
   // YOUR CODE HERE
+ 
+  
 
   var toppings = prompt("Please enter additional toppings (comma separated)")
   // HINT: prompt() will return an empty string "" if the user presses 'OK' without entering a value
@@ -31,11 +42,29 @@ function getPizzaOrder() {
   // the number of toppings added to pizza.cost
   // YOUR CODE HERE
 
+  // if (typeof toppings === 'empty string' && toppings) {
+  //    = crust.trim().toLowerCase()
+  //   console.log(pizza.crust)
+  //   if (pizza.crust === 'thick') {
+  //     pizza.crust += thickCrustUpcharge
+  //   }
+  // }
+
+
+
   var extraCheese = confirm("Would you like extra cheese?")
   // HINT: confirm() returns a boolean
   // if the user specifies extra cheese, set pizza.extraCheese to true or false
   // if the user specifies extra cheese, add extraCheeseUpcharge to pizza.cost
   // YOUR CODE HERE
+
+  if (typeof extraCheese === 'boolean' && extraCheese) {
+    pizza.extraCheese = extraCheese.trim().toLowerCase()
+    console.log(pizza.extraCheese)
+    if (pizza.extraCheese === 'true') {
+      pizza.cost += extraCheeseUpcharge
+    }
+  }
 
   var isDelivery = confirm("Is your order for Delivery?")
   // HINT: confirm() returns a boolean
