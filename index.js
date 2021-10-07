@@ -19,7 +19,6 @@ function getPizzaOrder() {
     `Please enter the type of crust (${formatPrice(thickCrustUpcharge)} upcharge for Thick crust)`
   )
   // set the pizza object's 'crust' property to the user's response
-
   // HINT: prompt() returns a string
   // HINT: You may wish to use .toLowerCase() and .trim()
   // if the user specified 'thick' crust, add thickCrustUpcharge
@@ -78,9 +77,11 @@ function getPizzaOrder() {
     if (pizza.isDelivery === 'true') {
       pizza.cost += deliveryFee
     }
+  }
 
   return pizza
 }
+
 
 // This function is attached to the Order Now Button
 // This function is COMPLETE. No work to do here
