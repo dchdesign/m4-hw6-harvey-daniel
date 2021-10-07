@@ -42,9 +42,9 @@ function getPizzaOrder() {
   // the number of toppings added to pizza.cost
   // YOUR CODE HERE
 
-  if (typeof toppings === "," && toppings) {
+  if (typeof toppings === "" && toppings) {
     console.log(pizza.toppings)
-    if (pizza.toppings === ',') {
+    if (pizza.toppings === "") {
       pizza.toppings += toppingsFee
     }
   }
