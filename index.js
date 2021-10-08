@@ -29,34 +29,17 @@ function getPizzaOrder() {
     pizza.crust = crust.trim().toLowerCase()
     console.log(pizza.crust)
     if (pizza.crust === 'thick') {
-      pizza.crust += thickCrustUpcharge
+      pizza.cost += thickCrustUpcharge
     }
   }
  
-  
-  var toppings = prompt("Please enter additional toppings (comma separated)")
-  // HINT: prompt() will return an empty string "" if the user presses 'OK' without entering a value
-  // if the user enters toppings, use .split(",") to separate toppings into an array
-  // if no toppings are given, make sure pizza.toppings is set to []
-  // if the user has added toppings, add toppingsFee multiplied by
-  // the number of toppings added to pizza.cost
-  // YOUR CODE HERE
-
-  if (typeof toppings === "" && toppings) {
-    console.log(pizza.toppings)
-    if (pizza.toppings === "") {
-      pizza.toppings += toppingsFee
-    }
-  }
-
-
   var extraCheese = confirm("Would you like extra cheese?")
   // HINT: confirm() returns a boolean
   // if the user specifies extra cheese, set pizza.extraCheese to true or false
   // if the user specifies extra cheese, add extraCheeseUpcharge to pizza.cost
   // YOUR CODE HERE
 
-  if (typeof extraCheese == "Yes" && extraCheese) {
+  if (typeof extraCheese === "boolean" && extraCheese) {
     pizza.extraCheese = extraCheese.trim().toLowerCase()
     console.log(pizza.extraCheese)
     if (pizza.extraCheese === 'true') {
@@ -71,13 +54,33 @@ function getPizzaOrder() {
   // if order if for delivery, add deliveryFee to pizza.cost
   // YOUR CODE HERE
 
-  if (typeof isDelivery == "Yes" && isDelivery) {
+  if (typeof isDelivery === "boolean" && isDelivery) {
     pizza.isDelivery = isDelivery.trim().toLowerCase()
     console.log(pizza.delivery)
     if (pizza.isDelivery === 'true') {
       pizza.cost += deliveryFee
     }
   }
+
+  var toppings = prompt("Please enter additional toppings (comma separated)")
+  // HINT: prompt() will return an empty string "" if the user presses 'OK' without entering a value
+  // if the user enters toppings, use .split(",") to separate toppings into an array
+  // if no toppings are given, make sure pizza.toppings is set to []
+  // if the user has added toppings, add toppingsFee multiplied by
+  // the number of toppings added to pizza.cost
+  // YOUR CODE HERE
+
+  // if (toppings && toppings.trim()) {
+  //   pizza.toppings = toppings.split(",")
+  //   console.log(pizza.toppings)
+  //   if (pizza.toppings === "") {
+  //     pizza.toppings.length x toppingsFee += pizza.cost {
+  //   else block (if user enters nothing or clicks cancel), set pizza.toppings to an empty array
+  //     pizza.toppings += toppingsFee
+  //   }
+  // }
+
+
 
   return pizza
 }
