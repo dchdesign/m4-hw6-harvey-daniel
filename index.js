@@ -39,10 +39,9 @@ function getPizzaOrder() {
   // if the user specifies extra cheese, add extraCheeseUpcharge to pizza.cost
   // YOUR CODE HERE
 
-  if (typeof extraCheese === "boolean" && extraCheese) {
-    pizza.extraCheese = extraCheese.trim().toLowerCase()
-    console.log(pizza.extraCheese)
-    if (pizza.extraCheese === 'true') {
+  if (typeof extraCheese === 'boolean') {
+    console.log(Boolean(pizza.extraCheese));
+    if (pizza.extraCheese === "true") {
       pizza.cost += extraCheeseUpcharge
     }
   }
@@ -54,9 +53,12 @@ function getPizzaOrder() {
   // if order if for delivery, add deliveryFee to pizza.cost
   // YOUR CODE HERE
 
-  if (typeof isDelivery === "boolean" && isDelivery) {
+  if (typeof isDelivery === 'boolean' && isDelivery) {
     pizza.isDelivery = isDelivery.trim().toLowerCase()
     console.log(pizza.delivery)
+    if (pizza.isDelivery === 'false'){ 
+      pizza.saleType === "take-out"
+    }
     if (pizza.isDelivery === 'true') {
       pizza.cost += deliveryFee
     }
